@@ -14,7 +14,7 @@ func _input(event: InputEvent) -> void:
 		$Camera.rotate_object_local(Vector3(1, 0, 0), -deg_to_rad(MOUSE_SENSITIVITY * mouse_motion_event.relative.y))
 		$Camera.rotation_degrees.x = clamp($Camera.rotation_degrees.x, -70, 70);
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("game_quit")):
 		get_tree().quit();
 
@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction: Vector3 = ($Camera.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
