@@ -10,6 +10,8 @@ extends MeshInstance3D
 
 func _ready() -> void:
 	update_shader_parameters();
+	if (!Engine.is_editor_hint()):
+		visible = true;
 
 func update_shader_parameters():
 	var material: ShaderMaterial = self.get_active_material(0);

@@ -6,7 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e33js"]
 render_priority = 0
 shader = ExtResource("1_0dehq")
-shader_parameter/resolution = Vector2(60, 30)
+shader_parameter/resolution = Vector2(10, 10)
 
 [sub_resource type="QuadMesh" id="QuadMesh_oleul"]
 material = SubResource("ShaderMaterial_e33js")
@@ -14,5 +14,6 @@ flip_faces = true
 size = Vector2(2, 2)
 
 [node name="PixelizeScreen" type="MeshInstance3D"]
+visible = false
 mesh = SubResource("QuadMesh_oleul")
 script = ExtResource("2_5eq80")
